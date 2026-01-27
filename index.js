@@ -131,7 +131,7 @@ const newArr = [];
 //   console.log(Object.values(people[key])); //samo vrednosti (key:vrednost)
 //   // console.log(Object.entries(people[key]));//arr
 //   if (Object.values(people[key]) >= 18) {
-//     newArr.push(people[key]);
+//     newArr.push(people[key]);////////
 //   }
 // }
 // console.log(newArr)
