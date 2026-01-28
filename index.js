@@ -115,6 +115,7 @@ const people = [
   { name: "Ana", age: 17 },
   { name: "Boris", age: 21 },
   { name: "Cvetka", age: 30 },
+  { index: "fg", age: 18 },
 ];
 
 // 👉 Naloga:
@@ -142,13 +143,25 @@ const newArr = [];
 
 // const polnoletni = people.filter((o) => o.age >= 18);
 // console.log(polnoletni.name);
-const polnoletni = people
-  .filter(o => o.age >= 18)
-  .map(o => o.name);
+const polnoletni = people.filter((o) => o.age >= 18).map((o) => o.name);
 
 console.log(polnoletni);
 // ["Boris", "Cvetka"]
 // Alternativa z destructuring (lepše)
-const polnoletn = people
-  .filter(({ age }) => age >= 18)
-  .map(({ name }) => name);
+const polnoletn = people.filter(({ age }) => age >= 18).map(({ name }) => name);
+const adultsName = people
+  .filter((o) => typeof o?.age === "number" && o.age >= 18)
+  .map((o) => o?.name ?? "annovn");
+console.log(adultsName);
+console.log(
+  `typeof adultsName ==="object":${typeof adultsName === "object"}`
+);
+console.log(
+  `typeof adultsName ==="array":${typeof adultsName === "array"}`
+);//typeof [] === "object" // ✅ true
+/*
+👉 array je poseben tip objekta,
+👉 "array" NI veljavna vrednost za typeof.
+✅ PRAVILEN način preverjanja arraya
+*/ 
+console.log(`Array.isArray(adultsName):${Array.isArray(adultsName)}`);
