@@ -29,16 +29,25 @@ const osebe = [
 // ❌ ni varna
 // ❌ ne podpira več vrednosti
 // 🔥 ROBUSTNA VERZIJA (real-life data)
-const filtrirajAreje = (arr, key, values) =>
-  arr.filter(
-    (obj) =>
-      obj[key] &&
-      values
-        .map((v) => v.toLowerCase())
-        .includes(obj[key].toString().toLowerCase())
-  );
+
+///za vse tipe///
+const toNorm = (v) => {
+  // normalizacija za primerjavo
+  if (v === null || v === undefined) return v;      // pusti null/undefined
+  if (typeof v === "string") return v.trim().toLowerCase();
+  return v;                                        // number/boolean/object ostane isti
+};
+const filtrirajAreje = (arr, key, values) => {
+  const vrednosti = (Array.isArray(values) ? values : [values]).map(toNorm);
+
+  return arr.filter((obj) => {
+    if (!obj || !(key in obj)) return false;        // key manjka
+    return vrednosti.includes(toNorm(obj[key]));
+  });
+};
 
 Uporaba: console.log(filtrirajAreje(osebe, "spol", ["ženski", "female"]));
+console.log(filtrirajAreje(osebe,"spol",["moški"]))
 
 // ✔ ignorira manjkajoče keye
 // ✔ ne občutljiva na velike/male črke
@@ -61,8 +70,8 @@ const preveriFilter = (arr, key, values) => {
 };
 console.log(preveriFilter(osebe, "enavrednost", 0)); //falsy
 console.log(preveriFilter(osebe, "", 10));
-// console.log(preveriFilter(osebe, "age", 10));
-// console.log(preveriFilter(osebe, "age", 10));
+ console.log(preveriFilter(osebe, "age", ["10"]));
+ console.log(preveriFilter(osebe, "age", [30]));
 // Če želiš privzete vrednosti (zelo uporabno)
 const { msg: destructMsg = "ni podatkov", rezultat: destructResult = [] } =
   preveriFilter(osebe, "enaVrednost", [""]);
