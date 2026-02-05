@@ -33,21 +33,21 @@ const osebe = [
 ///za vse tipe///
 const toNorm = (v) => {
   // normalizacija za primerjavo
-  if (v === null || v === undefined) return v;      // pusti null/undefined
+  if (v === null || v === undefined) return v; // pusti null/undefined
   if (typeof v === "string") return v.trim().toLowerCase();
-  return v;                                        // number/boolean/object ostane isti
+  return v; // number/boolean/object ostane isti
 };
 const filtrirajAreje = (arr, key, values) => {
   const vrednosti = (Array.isArray(values) ? values : [values]).map(toNorm);
 
   return arr.filter((obj) => {
-    if (!obj || !(key in obj)) return false;        // key manjka
+    if (!obj || !(key in obj)) return false; // key manjka
     return vrednosti.includes(toNorm(obj[key]));
   });
 };
 
 Uporaba: console.log(filtrirajAreje(osebe, "spol", ["ženski", "female"]));
-console.log(filtrirajAreje(osebe,"spol",["moški"]))
+console.log(filtrirajAreje(osebe, "spol", ["moški"]));
 
 // ✔ ignorira manjkajoče keye
 // ✔ ne občutljiva na velike/male črke
@@ -70,10 +70,20 @@ const preveriFilter = (arr, key, values) => {
 };
 console.log(preveriFilter(osebe, "enavrednost", 0)); //falsy
 console.log(preveriFilter(osebe, "", 10));
- console.log(preveriFilter(osebe, "age", ["10"]));
- console.log(preveriFilter(osebe, "age", [30]));
+console.log(preveriFilter(osebe, "age", ["10"]));
+console.log(preveriFilter(osebe, "age", [30]));
 // Če želiš privzete vrednosti (zelo uporabno)
 const { msg: destructMsg = "ni podatkov", rezultat: destructResult = [] } =
   preveriFilter(osebe, "enaVrednost", [""]);
-  const { msg } = preveriFilter(osebe, "spol", ["ženski", "female"]);
-  console.log(msg)
+const { msg } = preveriFilter(osebe, "spol", ["ženski", "female"]);
+console.log(msg);
+// const arrCheck = (arr,val) => arr.filter((val) => ["a", "b"]);
+const arrCheck = (arr, val) => arr.filter((vrednost) => vrednost === val,console.log("dfs"));
+let enArrej = [1, 3, "Miška", true];
+
+console.log(arrCheck(enArrej, 1));
+console.log(arrCheck(enArrej, "Mi"));
+console.log(arrCheck(enArrej, "Miška"));
+console.log(enArrej); //ni spremenilu originala
+
+
