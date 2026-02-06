@@ -78,12 +78,33 @@ const { msg: destructMsg = "ni podatkov", rezultat: destructResult = [] } =
 const { msg } = preveriFilter(osebe, "spol", ["ženski", "female"]);
 console.log(msg);
 // const arrCheck = (arr,val) => arr.filter((val) => ["a", "b"]);
-const arrCheck = (arr, val) => arr.filter((vrednost) => vrednost === val,console.log("dfs"));
-let enArrej = [1, 3, "Miška", true];
+const arrCheck = (arr, val) =>
+  arr.filter((vrednost) => vrednost === val, console.log("dfs"));
+let enArrej = [1, 3, "Miška", true, "Miška", "Miška"];//2,4,5
 
 console.log(arrCheck(enArrej, 1));
 console.log(arrCheck(enArrej, "Mi"));
 console.log(arrCheck(enArrej, "Miška"));
 console.log(enArrej); //ni spremenilu originala
 
-
+const arrCheckIfIndexExist = (arr, val) => arr.indexOf(val);
+console.log(arrCheckIfIndexExist(enArrej, "Miška"));
+// const arrFindAllIndex = (arr, val) =>
+//   arr.forEach((element) => {
+//     if (element === val) {
+//       console.log(index);
+//     }
+//   });
+const arrFindAllIndex = (arr, val) => {
+  let stevc=0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i]===val) {
+      console.log(`${val} je v indeksu: ${[i]}`);
+      stevc++;
+    }
+  }
+    if(stevc>1){
+      console.log(`${val} ni najden/a`)
+    }
+};
+arrFindAllIndex(enArrej, "Miška");
