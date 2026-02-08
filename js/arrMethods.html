@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div></div>
+    <div class="pliskoti"></div>
+    <script>
+      function nePodaniArgumenti() {
+        console.log(arguments);
+        return arguments;
+      }
+      nePodaniArgumenti("Zajček", "Miška", "Medo", true, 68);
+
+      let parametri = nePodaniArgumenti("para");
+      //   document.querySelector("div").innerHTML ="prazno"|| parametri ;
+      document.querySelector("div").innerHTML = parametri
+        ? JSON.stringify(...parametri)
+        : "prazno";
+
+      const pliskoti = nePodaniArgumenti("Zajček", "Miška", "Medo");
+      // document.querySelector(".pliskoti").innerHTML=JSON.stringify([pliskoti].join(""))
+      document.querySelector(".pliskoti").textContent = [...pliskoti].join(
+        ", "
+      );
+      /*
+      DESTRUCT VAJE ˇˇˇˇ
+      */
+      const otroci = [
+        {
+          ime: "Opica",
+          starost: 15,
+          lokacija:"soba1"
+        },
+        {
+          ime: "Medo",
+          starost: 18,
+          lokacija:"sobaII"
+        },
+        {
+          ime: "Miška",
+          starost: 13,
+          lokacija:"sobaIII"
+        },
+      ];
+//       Ja 👍 tole je perfekten primer za destructuring — in to na več nivojih.
+// Brez DOM-a, čisto “data level”, kot si želel.
+
+// Imava array objektov, kar je idealno za vajo.
+
+// 1️⃣ Najosnovnejši destruct (en objekt)
+
+// Če vzameš enega otroka:
+
+const prvi = otroci[0];
+
+const { ime, starost, lokacija } = prvi;
+
+console.log(ime, starost, lokacija);
+
+
+// 👉 output:
+
+// Opica 15 soba1
+
+// 2️⃣ Destruct kar v parametru funkcije (zelo JS-style)
+function izpis({ ime, starost }) {
+  console.log(`${ime} je star/a ${starost}`);
+}
+
+izpis(otroci[1]);
+
+
+// 👉
+
+// Medo je star/a 18
+
+
+// 💡 Tu destructaš argument funkcije, ne variable.
+
+// 3️⃣ Destruct v for...of (zelo pogosto v praksi)
+for (const { ime, lokacija } of otroci) {
+  console.log(`${ime} je v ${lokacija}`);
+}
+
+
+// 👉
+
+// Opica je v soba1
+// Medo je v sobaII
+// Miška je v sobaIII
+
+
+// Tole je zlati standard za branje array-ev objektov.
+
+// 4️⃣ Preimenovanje pri destructu (ko so imena nerodna)
+// const { ime: name, starost: age } = otroci[0];
+
+console.log(name, age);
+
+
+// Uporabno pri:
+
+// API-jih
+
+// tujih podatkih
+
+// angleščina / slovenščina mix
+
+// 5️⃣ Destruct + map (brez DOM-a, samo logika)
+// const imena = otroci.map(({ ime }) => ime);
+
+console.log(imena);
+
+
+// 👉
+
+["Opica", "Medo", "Miška"]
+
+// 6️⃣ Destruct z default vrednostjo (zelo pomembno!)
+// const { ime, starost, razred = "neznano" } = otroci[0];
+
+console.log(razred);
+
+
+// 👉
+
+// neznano
+
+// 7️⃣ Mentalni model (zapomni si to)
+// const { a, b } = objekt;
+
+
+// pomeni:
+
+// “iz objekta vzemi lastnosti a in b in ju shrani v spremenljivki”
+
+// In:
+
+array.map(({ x }) => x)
+
+
+// pomeni:
+
+// “za vsak element vzemi samo x”
+
+// Kdaj JE destruct smiselno uporabiti?
+
+// ✅ ko:
+
+// delaš z objekti
+
+// bereš samo par lastnosti
+
+// hočeš čisto, kratko kodo
+
+// ❌ ne, ko:
+
+// rabiš cel objekt
+
+// je samo ena uporaba
+    </script>
+  </body>
+</html>
