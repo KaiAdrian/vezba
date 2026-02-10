@@ -85,6 +85,8 @@ const sumPositive = (arr) =>
 
 console.log(sumPositive([-5, 10, -3, 7, 0]));
 // 17
+//ČE NI NBENGA///
+console.log(`sumPositive([-5,0,-4])vrne: ${sumPositive([-5,0,-4])}`)
 
 // 🔥 Krajša (1-linerska) verzija
 // const sumPositive = arr =>
