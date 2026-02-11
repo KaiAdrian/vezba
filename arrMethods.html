@@ -17,18 +17,28 @@
       // document.querySelector("div").textContent = parametri?.length
       //   ? parametri.join(", ")
       //   : "prazno";
-/////////////////////////////////
+      /////////////////////////////////
       const arrIndex = (arr) =>
-        arr.forEach((i, indeks) => {  
-              if (i >= 5) {
-           console.log("nene")
-           return
-          }     
+        arr.forEach((i, indeks) => {
+          if (i >= 5) {
+            console.log("nene");
+            return;
+          }
           console.log(i, indeks);
         });
       arrIndex([1, 2, 5]);
-
+      /*
+typleof ternery
+*/
+      let pliskoti = ["Zajček", "Miška", "Medo", true, 68];
+      const dTypeInArrVal = (arr, val) => arr.some(v=>v===val)
       
+        
+     
+      console.log(dTypeInArrVal(pliskoti, "Miška"));
+      console.log(dTypeInArrVal(pliskoti, "Slon"));
+      ///map
+      const arrSrediStringe = (arr) => arr;
     </script>
   </body>
 </html>
