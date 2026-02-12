@@ -8,37 +8,57 @@
   <body>
     <div></div>
     <script>
-      // function nePodaniArgumenti(...args) {
-      //   return args;
-      // }
+            // function nePodaniArgumenti(...args) {
+            //   return args;
+            // }
 
-      // // let parametri = nePodaniArgumenti("Zajček", "Miška", "Medo", true, 68);
-      // let parametri;
-      // document.querySelector("div").textContent = parametri?.length
-      //   ? parametri.join(", ")
-      //   : "prazno";
-      /////////////////////////////////
-      const arrIndex = (arr) =>
-        arr.forEach((i, indeks) => {
-          if (i >= 5) {
-            console.log("nene");
-            return;
-          }
-          console.log(i, indeks);
-        });
-      arrIndex([1, 2, 5]);
-      /*
-typleof ternery
-*/
-      let pliskoti = ["Zajček", "Miška", "Medo", true, 68];
-      const dTypeInArrVal = (arr, val) => arr.some(v=>v===val)
-      
-        
-     
-      console.log(dTypeInArrVal(pliskoti, "Miška"));
-      console.log(dTypeInArrVal(pliskoti, "Slon"));
-      ///map
-      const arrSrediStringe = (arr) => arr;
+            // // let parametri = nePodaniArgumenti("Zajček", "Miška", "Medo", true, 68);
+            // let parametri;
+            // document.querySelector("div").textContent = parametri?.length
+            //   ? parametri.join(", ")
+            //   : "prazno";
+            /////////////////////////////////
+            const arrIndex = (arr) =>
+              arr.forEach((i, indeks) => {
+                if (i >= 5) {
+                  console.log("nene");
+                  return;
+                }
+                console.log(i, indeks);
+              });
+            arrIndex([1, 2, 5]);
+            /*
+      typleof ternery
+      */
+            let pliskoti = ["Zajček", "Miška", "Medo", "Medo", true, 68];
+            const dTypeInArrVal = (arr, val) => arr.some((v) => v === val);
+
+            console.log(dTypeInArrVal(pliskoti, "Miška"));
+            console.log(dTypeInArrVal(pliskoti, "Slon"));
+
+            // function valFreqCoun(fun) {
+            //   let count = 0;
+            //   if (fun === true) {
+            //     count++;
+            //   }
+            //   return count;
+            // }
+            // console.log(valFreqCoun(dTypeInArrVal(pliskoti,"Miška")))
+            // console.log(valFreqCoun(dTypeInArrVal(pliskoti,"Medo")))//moralo bi biti 2
+            // console.log(valFreqCoun(dTypeInArrVal(pliskoti,"opica")))
+            const arrValueCount = (arr, val) => {
+             const stevc= arr.filter((v) => v === val).length;
+              return {
+               stevc :stevc ,
+                msg:stevc>0?`V arreju se ${val} pojavi ${stevc}`
+                :`V arreju ni ${val}`,
+              };
+            };
+            console.log(arrValueCount(pliskoti, "Miška")); //1
+            console.log(arrValueCount(pliskoti, "Medo")); // 2
+            console.log(arrValueCount(pliskoti, "opica")); //0
+            ///map
+            const arrSrediStringe = (arr) => arr;
     </script>
   </body>
 </html>
