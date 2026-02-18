@@ -68,7 +68,7 @@
       const drugi = otroci[1];
       // const { i,j,m } = drugi;
       // console.log(i);
-       console.log(drugi);
+      console.log(drugi);
       // 👉 output:
 
       // Opica 15 soba1
@@ -161,6 +161,22 @@
       // rabiš cel objekt
 
       // je samo ena uporaba
+
+      // const enArej=letters=>
+      const enArej = ["A", "a", "d", "69"];
+      const niVAreju = (arr, del) => arr.filter((rm) => rm != del);
+      console.log(niVAreju(enArej, "a"));
+
+      const delFromArr = (arr, del) =>
+        arr.map((rm) => {
+          if (rm === del) {
+            return undefined;
+          }else {
+            return rm
+          }
+          arr.filter(val=>val!==undefined)
+        });
+      console.log(delFromArr(enArej, "69"));
     </script>
   </body>
 </html>
