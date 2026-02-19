@@ -64,24 +64,20 @@
       const { ime, starost, lokacija } = prvi;
 
       console.log(ime, starost, lokacija);
-
+      console.log(otroci[1]); ///
       const drugi = otroci[1];
-      // const { i,j,m } = drugi;
-      // console.log(i);
-      console.log(drugi);
-      // 👉 output:
+      const { imeII, starostII, lokacijaIII } = drugi;
+      console.log(drugi); ///
 
+      // 👉 output:
       // Opica 15 soba1
 
       // 2️⃣ Destruct kar v parametru funkcije (zelo JS-style)
       function izpis({ ime, starost }) {
         console.log(`${ime} je star/a ${starost}`);
       }
-
-      izpis(otroci[1]);
-
+      // izpis({imeII, starostII})
       // 👉
-
       // Medo je star/a 18
 
       // 💡 Tu destructaš argument funkcije, ne variable.
@@ -90,7 +86,9 @@
       for (const { ime, lokacija } of otroci) {
         console.log(`${ime} je v ${lokacija}`);
       }
-
+      // for (const { imeII, lokacija } of otroci) {
+      //   console.log(`${ime} je v ${lokacija}`);
+      // }
       // 👉
 
       // Opica je v soba1
@@ -162,21 +160,6 @@
 
       // je samo ena uporaba
 
-      // const enArej=letters=>
-      const enArej = ["A", "a", "d", "69"];
-      const niVAreju = (arr, del) => arr.filter((rm) => rm != del);
-      console.log(niVAreju(enArej, "a"));
-
-      const delFromArr = (arr, del) =>
-        arr.map((rm) => {
-          if (rm === del) {
-            return undefined;
-          }else {
-            return rm
-          }
-          arr.filter(val=>val!==undefined)
-        });
-      console.log(delFromArr(enArej, "69"));
     </script>
   </body>
 </html>

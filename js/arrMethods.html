@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const enArej=letters=>
+      const enArej = ["A", "a", "d", "69"];
+      const niVAreju = (arr, del) => arr.filter((rm) => rm != del);
+      console.log(niVAreju(enArej, "a"));
+
+      const delFromArr = (arr, del) =>
+        arr
+          .map((v) => (v === del ? undefined : v))
+          .filter((val) => val !== undefined);
+      console.log(delFromArr(enArej, "69")); ///"A", "a","d"
+      console.log(delFromArr(enArej, "d")); ///"A", "a","69"
+      console.log(delFromArr(enArej, ""));
+      // const delFromArr = (arr, del) => {
+      //   arr.map((rm) => {
+      //     return arr (rm === del) ? undefined : rm;
+      //   });
+      //   arr.filter()
+      // };
+      // console.log(delFromArr(enArej, "69"));
+    </script>
+  </body>
+</html>

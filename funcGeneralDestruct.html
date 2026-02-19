@@ -68,11 +68,35 @@
 
       const getMsg = (arr, val) => arrValueCount(arr, val).msg;
       console.log(getMsg(pliskoti, "Miška"));
-      console.log(getMsg(pliskoti, "Žirafa"));//ni vrednost
+      console.log(getMsg(pliskoti, "Žirafa")); //ni vrednost
       //drug arej
       const kitare = ["ibanez", "gibson", "fender", "ibanez"];
       console.log(getMsg(kitare, "ibanez"));
-      console.log(getMsg(kitare,"Yamaha"))//ni vrednost
+      console.log(getMsg(kitare, "Yamaha")); //ni vrednost
+
+      const otroci = [
+        {
+          ime: "Opica",
+          starost: 15,
+          lokacija: "soba1",
+        },
+        {
+          ime: "Medo",
+          starost: 18,
+          lokacija: "sobaII",
+        },
+        {
+          ime: "Miška",
+          starost: 13,
+          lokacija: "sobaIII",
+        },
+      ];
+      const imena = otroci.map(({ ime }) => ime);
+      console.log(imena);
+      const lokacija = otroci.map(({ lokacija }) => lokacija);
+      console.log(lokacija);
+      const age = otroci.map(({ starost }) => starost);
+      console.log(age);
     </script>
   </body>
 </html>
