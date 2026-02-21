@@ -8,7 +8,7 @@
   <body>
     <script>
       // const enArej=letters=>
-      const enArej = ["A", "a", "d", "69"];
+      const enArej = ["A", "a", "d", "69", "a"];
       const niVAreju = (arr, del) => arr.filter((rm) => rm != del);
       console.log(niVAreju(enArej, "a"));
 
@@ -16,16 +16,19 @@
         arr
           .map((v) => (v === del ? undefined : v))
           .filter((val) => val !== undefined);
+      console.log(delFromArr(enArej, "a"));
       console.log(delFromArr(enArej, "69")); ///"A", "a","d"
       console.log(delFromArr(enArej, "d")); ///"A", "a","69"
       console.log(delFromArr(enArej, ""));
-      // const delFromArr = (arr, del) => {
-      //   arr.map((rm) => {
-      //     return arr (rm === del) ? undefined : rm;
-      //   });
-      //   arr.filter()
-      // };
-      // console.log(delFromArr(enArej, "69"));
+
+      ///uporaba some()
+      const arrCheck = (arr, NVal) => arr.some((val) => val === NVal);
+      console.log(arrCheck(enArej,70))//false
+      console.log(arrCheck(enArej,"69"))//true
+      console.log(arrCheck(enArej,"a"))//true
+      console.log(arrCheck(enArej,"A"))//true
+      console.log(arrCheck(enArej,"C"))//false
+      // const arrCheckZbris = (arr, NVal) =>arrCheck(arr,NVal).true;
     </script>
   </body>
 </html>
