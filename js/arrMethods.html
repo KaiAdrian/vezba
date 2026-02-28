@@ -9,7 +9,19 @@
     <script>
       // const enArej=letters=>
       const enArej = ["A", "a", "d", "69", "a"];
-      const niVAreju = (arr, del) => arr.filter((rm) => rm != del);
+      // const checkArej = (arr, del) => arr.some((val) => val === del);
+      function jeNiVAreju(arr, vrednostZaIzbris) {
+        const result = arr.some((v) => v === vrednostZaIzbris);
+        if (result===true) {
+          const nArr = arr.filter((rem) => rem !== del);
+          return nArr;
+        }
+      }
+      console.log(jeNiVAreju(enArej, "4"));
+      console.log(jeNiVAreju(enArej, "A"));
+      /////
+
+      const niVAreju = (arr, del) => arr.filter((rm) => rm !== del);
       console.log(niVAreju(enArej, "a"));
 
       const delFromArr = (arr, del) =>
@@ -23,12 +35,31 @@
 
       ///uporaba some()
       const arrCheck = (arr, NVal) => arr.some((val) => val === NVal);
-      console.log(arrCheck(enArej,70))//false
-      console.log(arrCheck(enArej,"69"))//true
-      console.log(arrCheck(enArej,"a"))//true
-      console.log(arrCheck(enArej,"A"))//true
-      console.log(arrCheck(enArej,"C"))//false
-      // const arrCheckZbris = (arr, NVal) =>arrCheck(arr,NVal).true;
+      console.log(arrCheck(enArej, 70)); //false
+      console.log(arrCheck(enArej, "69")); //true
+      console.log(arrCheck(enArej, "a")); //true
+      console.log(arrCheck(enArej, "A")); //true
+      console.log(arrCheck(enArej, "C")); //false
+      /*
+            ///CONSOLE.LOGI////////////
+      */
+      // console.log("%c delFromArr(enArej, a)", "color: green; font-weight: bold;");
+      console.trace("arrCheck(enArej,70" + " " + arrCheck(enArej, 70));
+      console.log(
+        "%c arrCheck(enArej,'a')",
+        "color:white; background: blue; padding: 2px;",
+        arrCheck(enArej, "a")
+      );
+      console.log(
+        "%c niVAreju(enArej,'2')",
+        "color: green; font-weight: bold;",
+        niVAreju(enArej, "2")
+      );
+      console.log(
+        "%c niVAreju(enArej,'a')",
+        "color: red; font-weight: bolder;",
+        niVAreju(enArej, "a")
+      );
     </script>
   </body>
 </html>
