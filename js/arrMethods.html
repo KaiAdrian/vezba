@@ -9,17 +9,65 @@
     <script>
       // const enArej=letters=>
       const enArej = ["A", "a", "d", "69", "a"];
-      // const checkArej = (arr, del) => arr.some((val) => val === del);
-      function jeNiVAreju(arr, vrednostZaIzbris) {
-        const result = arr.some((v) => v === vrednostZaIzbris);
-        if (result===true) {
-          const nArr = arr.filter((rem) => rem !== del);
-          return nArr;
+      const arrVChechNFilter = (arr, vZaZbrisi) => {
+        const contains = arr.some((v) => v === vZaZbrisi);
+        /* if (contains) {
+
+                console.log("je");
+                const newArr = arr.filter((val) => val !== vZaZbrisi);
+                return newArr; // vrnemo NOV array
+              } else {
+                console.log("ni");
+                return arr; // ali pa null, odvisno kaj želiš
+              }*/
+
+        // //         Bolj “čista” verzija (brez some())
+        // // Ker filter() že sam po sebi pove ali je bil element prisoten
+        // // (če se dolžina spremeni), lahko narediš elegantneje:
+        const newArr = arr.filter((val) => val !== vZaZbrisi);
+
+        if (newArr.length !== arr.length) {
+          console.log("je");
+          return newArr;
+        } else {
+          console.log("ni");
+          return arr;
         }
-      }
-      console.log(jeNiVAreju(enArej, "4"));
-      console.log(jeNiVAreju(enArej, "A"));
+      };
+
+      console.log(
+        "%c arrVChechNFilter(enArej, '4')",
+        "color: green; font-weight: bold;",
+        arrVChechNFilter(enArej, "4"),
+        "//vrne originalni arr"
+      );
+      console.log(
+        "%c arrVChechNFilter(enArej, 'A')",
+        "color:red",
+        arrVChechNFilter(enArej, "A"),
+        "//odstrani 'A'"
+      );
       /////
+
+      // 🧠 Še bolj napredna verzija (z objektom rezultata)
+
+      // Glede na to, da rad delaš bolj strukturirane stvari:
+
+      const arrVChechNFilterObj = (arr, vZaZbrisi) => {
+        const newArr = arr.filter((val) => val !== vZaZbrisi);
+
+        return {
+          found: newArr.length !== arr.length,
+          array: newArr,
+          msg:
+            newArr.length !== arr.length
+              ? `"${vZaZbrisi}" je bil izbrisan`
+              : `"${vZaZbrisi}" ni v arrayu`,
+        };
+      };
+      // const rezultat = arrVChechNFilterObj(enArej, "A");
+      // console.log(rezultat.msg);
+      // console.log(rezultat.array);
 
       const niVAreju = (arr, del) => arr.filter((rm) => rm !== del);
       console.log(niVAreju(enArej, "a"));
@@ -41,8 +89,8 @@
       console.log(arrCheck(enArej, "A")); //true
       console.log(arrCheck(enArej, "C")); //false
       /*
-            ///CONSOLE.LOGI////////////
-      */
+                  ///CONSOLE.LOGI////////////
+            */
       // console.log("%c delFromArr(enArej, a)", "color: green; font-weight: bold;");
       console.trace("arrCheck(enArej,70" + " " + arrCheck(enArej, 70));
       console.log(
