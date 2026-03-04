@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // we have an array with a name and surname
+      let arr = ["John", "Smith"];
+
+      // destructuring assignment
+      // sets firstName = arr[0]
+      // and surname = arr[1]
+      let [firstName, surname] = arr;
+
+      console.log(`firstName: ${firstName}`); // John
+      console.log(`surname: ${surname}`); // Smith
+
+      //       “Destructuring” does not mean “destructive”.
+      // It’s called “destructuring assignment,” because it “destructurizes” by copying items into variables. However, the array itself is not modified.
+
+      // It’s just a shorter way to write:
+
+      // // let [firstName, surname] = arr;
+      // let firstName = arr[0];
+      // let surname = arr[1];
+
+      //         Works with any iterable on the right-side
+      //   …Actually, we can use it with any iterable, not only arrays:
+
+      let [a, b, c] = "abc"; // ["a", "b", "c"]
+      let [one, two, three] = new Set([1, 2, 3]);
+      console.log(``);
+      console.log(`abc: ${"abc"}`);
+      //   That works, because internally a destructuring assignment works by iterating
+      //   over the right value. It’s a kind of syntax sugar
+      //    for calling for..of over the value to the right of = and assigning the values.
+
+      //       Assign to anything on the left-side
+      // We can use any “assignables” on the left side.
+
+      // For instance, an object property:
+
+      let user = {};
+      [user.name, user.surname] = "John Smith".split(" ");
+      console.log(`user.name :${user.name}`); // John
+      console.log(`user.surname:${user.surname}`); // Smith
+      //   console.log(`user[1]:${user[1]}`);
+      //   console.log(user[0]);
+    </script>
+  </body>
+</html>
