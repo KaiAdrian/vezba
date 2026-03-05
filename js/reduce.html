@@ -7,6 +7,7 @@
   </head>
   <body>
     <script>
+      ///UVOD
       const f1 = () => "Joži";
       console.log(f1());
 
@@ -22,6 +23,37 @@
         ime: "Joline";
       };
       console.log(f4());
+
+      const f5 = (a) => {
+        if (a > 5) {
+          return "Joži";
+        }
+      };
+
+      console.log(f5(10));
+      console.log(f5(2));
+
+      const f6 = (a) => (a > 5 ? { ime: "Joline" } : { ime: "Joži" });
+
+      console.log(f6(10));
+      console.log(f6(2));
+      /*
+PRIMER NAMESTO FILTER
+*/
+
+      const enArej = ["A", "a", "d", "69", "a"];
+      const reducirajArr = (arr, vIzbris) => {
+        return arr.reduce((acc, curr) => {
+          if (curr != vIzbris) {
+            //npr "1" ali 1 //zatu != ne pa !==
+            acc.push(curr);
+          }
+          return acc;
+        }, []);
+      };
+
+      console.log("acc ('69')", reducirajArr(enArej, "69"));
+      console.log("acc (69)", reducirajArr(enArej, 69));
     </script>
   </body>
 </html>
