@@ -49,7 +49,56 @@
       console.log(`user.surname:${user.surname}`); // Smith
       //   console.log(`user[1]:${user[1]}`);
       //   console.log(user[0]);
-    
+
+      // const cheArr = (arr) => arr.length;
+      // Leva stran:
+      // [user.name, user.surname]
+      // pomeni:
+      // prvi element arraya daj v user.name
+      // drugi element arraya daj v user.surname
+      // Torej po tem imaš objekt:
+
+      // user = {
+      //   name: "John",
+      //   surname: "Smith"
+      // }
+      // Zakaj potem user[0] ne dela?
+      // Ker user ni array, ampak objekt.
+      // To pomeni:
+      // user[0]
+      // išče property z imenom "0".
+
+      /* "",: */
+
+      let user1 = {};
+      [user1.name, user1.surname] = ["John", "Smith"];
+
+      console.log("user1:", user1);
+      // { name: "John", surname: "Smith" }
+
+      console.log("user1.name:", user1.name); // John
+      console.log("user1['name']:", user1["name"]); // John
+
+      //for of..
+      const arej = ["Joži", "Miška", "Medo"];
+      for (const val of arej) {
+        console.log(val);
+      }
+//       Za objekt:
+// for...in za ključe
+
+// ali Object.keys(), Object.values(), Object.entries()
+// Primer:
+
+const userIII = { name: "John", surname: "Smith" };
+
+for (const key in userIII) {
+  console.log("${key}: ${userIII[key]} \\vrne",`${key}: ${userIII[key]}`);
+  console.log("${key}: \\ vrne",`${key}: `);
+  console.log("${key}: \\ vrne",`:${key} `);
+  console.log("${userIII[key]}:${key} \\ vrne",`${userIII[key]}:${key} `);
+
+}
     </script>
   </body>
 </html>
