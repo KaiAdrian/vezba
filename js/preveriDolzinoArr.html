@@ -1,38 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-              const cheArr = (
-        arr //{
-      ) =>
-        // const msg = arr.length > 0 ? "array vsebuje nekaj" : "array je prazen ";
-        // return msg
-        // };
-        arr.length > 0
-          ? `array vsebuje: ${arr.length} element\\e\\ov,ki so: ${arr}`
-          : "array je prazen";
-
-      console.log("//cheArr([])", cheArr([]));
-      console.log("//cheArr([2])", cheArr([2]));
-
-      // Malo bolj varna verzija
-      // Če slučajno ne podaš arraya:
-
-      // const cheArr = (arr) => {
-      //   if (!Array.isArray(arr)) return "podan argument ni array";
-      //   return arr.length > 0
-      //     ? `array vsebuje ${arr.length} element(ov)`
+      // const cheArr = (arr) =>
+      //   arr.length > 0
+      //     ? `array vsebuje: ${arr.length} elementov, ki so: ${arr.join(", ")}`
       //     : "array je prazen";
-      // };
+      //       console.log("//cheArr([])", cheArr([]));
+      //       console.log("//cheArr([2])", cheArr([2]));
+      const cheArr = (arr) => {
+        if (!Array.isArray(arr)) {
+          return "napaka: podan argument ni array";
+        }
+
+        if (arr.length === 0) {
+          return "array je prazen";
+        }
+
+        return `array vsebuje: ${arr.length} elementov, ki so: ${arr.join(
+          ", "
+        )}`;
+      };
 
       console.log(cheArr([]));
       console.log(cheArr([2]));
-      console.log(cheArr("abc"));
+      console.log(cheArr(["abc"]));
+      console.log(cheArr(["a","b","c"]));
+     
     </script>
-</body>
+  </body>
 </html>

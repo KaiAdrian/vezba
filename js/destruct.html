@@ -30,7 +30,7 @@
       //         Works with any iterable on the right-side
       //   …Actually, we can use it with any iterable, not only arrays:
 
-      let [a, b, c] = "abc"; // ["a", "b", "c"]
+      let [A, B, D] = "Abc"; // ["a", "b", "c"]
       let [one, two, three] = new Set([1, 2, 3]);
       console.log(``);
       console.log(`abc: ${"abc"}`);
@@ -84,21 +84,86 @@
       for (const val of arej) {
         console.log(val);
       }
-//       Za objekt:
-// for...in za ključe
+      const pliskotiCheck = arej.map((v) => {
+        if (v !== "Joži") {
+          return `pliško/pliška: ${v}`;
+        }
+        return v;
+      });
+      console.log(pliskotiCheck);
+      // console.log("arej.length:",arej.length)
+      // console.log("arej[0]: ",arej[0])
+      // console.log("arej[arej.length-1]: ",arej[arej.length-1])
+      //       Za objekt:
+      // for...in za ključe
 
-// ali Object.keys(), Object.values(), Object.entries()
-// Primer:
+      // ali Object.keys(), Object.values(), Object.entries()
+      // Primer:
 
-const userIII = { name: "John", surname: "Smith" };
+      const userIII = { name: "John", surname: "Smith" };
+      /*
+      for (const key in userIII) {
 
-for (const key in userIII) {
-  console.log("${key}: ${userIII[key]} \\vrne",`${key}: ${userIII[key]}`);
-  console.log("${key}: \\ vrne",`${key}: `);
-  console.log("${key}: \\ vrne",`:${key} `);
-  console.log("${userIII[key]}:${key} \\ vrne",`${userIII[key]}:${key} `);
+        console.log("${key}: ${userIII[key]}
+         \\vrne",`${key}: ${userIII[key]}`);//vrne name: John//vrne surname: Smith
 
-}
+        console.log("${userIII[key]}:${key} \\
+         vrne",`${userIII[key]}:${key} `);// vrne John:name //vrne surname:Smith
+        console.log("${key}:
+         \\ vrne",`${key}: `);//vrne name:// vrne surname:
+
+        console.log("${userIII[key]}:${key}
+         \\ vrne",`${userIII[key]}:${key} `);//vrne John:name//vrne Smith:surname
+
+        console.log("${userIII[key]}:${key}
+        \\ vrne",`${userIII[key]}:${key} `);
+      }
+        */
+      for (let [key, value] of Object.entries(userIII)) {
+        console.log(`// name:John, then age:30 ${key}:${value}`); // name:John, age:30
+        console.log(`value:${value}`); //value:John //value:Smith
+        console.log(`value key:${value} ${key}`); //value key:John name //value key:Smith surname
+      }
+
+      //Vaja 1.
+      // Iz arraya shrani prvo in drugo vrednost v spremenljivki a in b.
+
+      const nums = [10, 20];
+      const [a, b] = nums;
+      console.log("a:", a);
+      console.log("b:", b);
+
+      // Vaja 2
+      // Iz arraya vzemi samo prvi element v first.
+
+      const colors = ["red", "green", "blue"];
+      const [first] = colors;
+      // Želeni izpis:
+      console.log("first:", first);
+      // first: red
+
+      //Vaja 3
+      // Preskoči drugi element in shrani prvega ter tretjega.
+
+      const letters = ["a", "b", "c"];
+      let [firstt, , third] = letters;
+      // Želeni rezultat:
+      console.log("first:", firstt);
+      console.log("third:", third);
+      // first: a
+      // third: c
+
+      //  3️⃣ Naslednja (default vrednosti)
+
+      // To je bila tretja vaja:
+
+       const numss = [5, 10];
+      const [aa,bb,cc=100]=numss
+      // želeni rezultat:
+
+      // a = 5
+      // b = 10
+      // c = 100 (če ne obstaja)
     </script>
   </body>
 </html>
