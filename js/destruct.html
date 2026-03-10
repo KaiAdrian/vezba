@@ -34,6 +34,11 @@
       let [one, two, three] = new Set([1, 2, 3]);
       console.log(``);
       console.log(`abc: ${"abc"}`);
+       console.log("Set",[two])
+       console.log("Set[,one]",[,one])//bi moglu bit 2
+       console.log("Set[,,one]",[,,one])//bi moglu bit 3
+       
+
       //   That works, because internally a destructuring assignment works by iterating
       //   over the right value. It’s a kind of syntax sugar
       //    for calling for..of over the value to the right of = and assigning the values.
@@ -164,6 +169,13 @@
       // a = 5
       // b = 10
       // c = 100 (če ne obstaja)
+      const arejj = [1, 2, 3, 4];
+
+const [c, , d, ...rest] = arejj;
+
+console.log("c",c);//1
+console.log("d",d);//3
+console.log("rest",rest);//[4]
     </script>
   </body>
 </html>
